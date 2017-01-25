@@ -523,6 +523,10 @@ public abstract class ChartView extends RelativeLayout {
 		invalidate();
 	}
 
+	public void clearAll() {
+		mRegions.clear();
+		dismiss(mAnim);
+	}
 
 	/**
 	 * Method not expected to be used often. More for testing.
@@ -915,6 +919,15 @@ public abstract class ChartView extends RelativeLayout {
 		return data;
 	}
 
+	/**
+	 * Get the chart display region
+	 *
+	 * @return List of {@link java.util.ArrayList} of {@link android.graphics.Region}
+	 * owned by the chart.
+     */
+	public ArrayList<ArrayList<Region>> getRegions() {
+		return mRegions;
+	}
 
 	/**
 	 * Get the list of {@link android.graphics.Rect} associated to each entry of a ChartSet.
